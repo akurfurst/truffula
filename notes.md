@@ -4,6 +4,7 @@ As part of Wave 0, please fill out notes for each of the below files. They are i
 PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## App.java
+Contains the main for the app. Seems like this is where the app checks for arguments such as '-h' to show hidden files. 
 
 ## ConsoleColor.java
 
