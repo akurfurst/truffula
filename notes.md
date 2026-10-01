@@ -11,7 +11,7 @@ Sets the color of the text in the console using ANSI excape codes.
 ## ColorPrinter.java / ColorPrinterTest.java
 Prints text to the console in color. 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
-
+Constructs a TruffulaOptions object that sets value for the root, if it shows hidden files, and if a color is ibeing used. 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
 ## AlphabeticalFileSorter.java
