@@ -7,9 +7,9 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 Contains the main for the app. Seems like this is where the app checks for arguments such as '-h' to show hidden files. 
 
 ## ConsoleColor.java
-
+Sets the color of the text in the console using ANSI excape codes. 
 ## ColorPrinter.java / ColorPrinterTest.java
-
+Prints text to the console in color. 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
