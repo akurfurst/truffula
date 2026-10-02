@@ -110,7 +110,7 @@ public class TruffulaOptions  {
     File root = new File(args[args.length-1]);
     if(!root.exists() || !root.isDirectory()) throw new FileNotFoundException("Cannot find file");
     for(String c : args){
-      if(c != "-h" && c != "-nc" && c != args[args.length - 1]){
+      if(!c.equals("-h") && !c.equals("-nc") && c != args[args.length - 1]){
         throw new IllegalArgumentException("Invalid argument");
       }else if(c == "-h") showHidden = true;
       else if (c == "-nc") useColor = false;
