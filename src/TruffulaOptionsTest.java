@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
@@ -25,5 +26,49 @@ public class TruffulaOptionsTest {
     assertEquals(directory.getAbsolutePath(), options.getRoot().getAbsolutePath());
     assertTrue(options.isShowHidden());
     assertFalse(options.isUseColor());
+  }
+
+  @Test
+  void testInvalidDirectory(){
+    String[] args = {"-nc", "-h", "Not a file path"};
+    assertThrows(FileNotFoundException.class, () -> {
+      TruffulaOptions test = new TruffulaOptions(args);
+    });
+  }
+
+  @Test
+  void testOneInvalidArgumenti0(@TempDir File tempDir){
+    File directory = new File(tempDir, "subfolder");
+    directory.mkdir();
+    String directoryPath = directory.getAbsolutePath();
+    String[] args = {"-BadArgument", "-h", directoryPath};
+    assertThrows(IllegalArgumentException.class, () -> {
+      TruffulaOptions test = new TruffulaOptions(args);
+    });
+  }
+
+  @Test
+  void testOneInvalidArgumenti1(@TempDir File tempDir){
+    File directory = new File(tempDir, "subfolder");
+    directory.mkdir();
+    String directoryPath = directory.getAbsolutePath();
+    String[] args = {"-nc", "-BadArgument", directoryPath};
+    assertThrows(IllegalArgumentException.class, () -> {
+      TruffulaOptions test = new TruffulaOptions(args);
+    });
+  }
+
+  @Test 
+  void testNullArgumentGiven(){
+    assertThrows(IllegalArgumentException.class, () ->{
+      TruffulaOptions test = new TruffulaOptions(null);
+    });
+  }
+
+  @Test 
+  void testEmptyArgumentGiven(){
+    assertThrows(IllegalArgumentException.class, () ->{
+      TruffulaOptions test = new TruffulaOptions(new String[0]);
+    });
   }
 }
