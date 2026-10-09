@@ -117,6 +117,7 @@ public class TruffulaPrinter {
   }
 
   private void printTree(File root, int layer){
+    if(root.isHidden() && !options.isShowHidden()) return;
     String result = "";
     for(int i = 0; i < layer; i++) result += "   ";
     result += root.getName();
