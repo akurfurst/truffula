@@ -128,7 +128,8 @@ public class TruffulaPrinter {
     if(root.isDirectory()) result += "/";
     out.print(result + "\n");
     if(root.isDirectory() && root.listFiles() != null){
-      for(File child : root.listFiles()){
+      File[] children = AlphabeticalFileSorter.sort(root.listFiles());
+      for(File child : children){
         printTree(child, layer + 1);
       }  
     }
