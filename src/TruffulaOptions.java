@@ -112,8 +112,8 @@ public class TruffulaOptions  {
     for(String c : args){
       if(!c.equals("-h") && !c.equals("-nc") && c != args[args.length - 1]){
         throw new IllegalArgumentException("Invalid argument");
-      }else if(c == "-h") showHidden = true;
-      else if (c == "-nc") useColor = false;
+      }else if(c.equals("-h")) showHidden = true;
+      else if (c.equals("-nc")) useColor = false;
     }
     this.root = root;
     this.showHidden = showHidden;

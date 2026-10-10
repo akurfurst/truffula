@@ -117,7 +117,7 @@ public class TruffulaPrinter {
   }
 
   private void printTree(File root, int layer){
-    if(root.isHidden() && !options.isShowHidden()) return;
+    if(root.isHidden() && !options.isShowHidden() && layer != 0) return;
     ConsoleColor color;
     if(options.isUseColor()) color = colorSequence.get(layer % colorSequence.size());
     else color = ConsoleColor.RESET;
